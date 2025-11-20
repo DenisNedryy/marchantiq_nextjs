@@ -9,8 +9,8 @@ import { HOST } from "./host.js";
 import { ActiveLink } from "./components/navigation/ActiveLink";
 
 export const metadata = {
-  title: "Marchantiq - Accueil",
-  description: "Page d'accueil du site, présente les nouveautés et les articles à la Une",
+  title: "Marchantiq | Achat, Vente et Estimation d’objets anciens",
+  description: "Marchantiq est spécialisé dans l’achat, la vente et l’estimation d’objets anciens et de collection. Découvrez nos nouveautés, articles à la une et services aux collectionneurs.",
 };
 
 export default async function RootLayout({ children }) {
