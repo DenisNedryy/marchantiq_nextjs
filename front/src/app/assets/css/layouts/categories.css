@@ -62,7 +62,7 @@ li:hover p {
 }
 
 .categories li:hover img {
-    transform: translateX(-10px) scale(1.2);
+    /* transform: translateX(-10px) scale(1.2); */
 }
 
 .categories li img {

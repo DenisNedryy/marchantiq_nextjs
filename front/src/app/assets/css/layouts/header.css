@@ -108,6 +108,7 @@ html body .drapeau {
     list-style-type: none;
     display: flex;
     padding: 0;
+    align-items: center;
 }
 
 .header__menu__pages li {
@@ -123,9 +124,12 @@ html body .drapeau {
 .header__menu__pages a {
     text-decoration: none;
     color: inherit;
-    display: block;       /* 👈 important */
-    width: 100%;          /* prend toute la largeur du li */
-    height: 100%;         /* prend toute la hauteur du li */
+    display: block;
+    /* 👈 important */
+    width: 100%;
+    /* prend toute la largeur du li */
+    height: 100%;
+    /* prend toute la hauteur du li */
 }
 
 
@@ -146,7 +150,8 @@ html body .drapeau {
     transition: transform 0.3s ease;
     font-weight: 600;
     color: black;
-    pointer-events: none;   /* 👈 laisse passer les clics au lien en dessous */
+    pointer-events: none;
+    /* 👈 laisse passer les clics au lien en dessous */
 }
 
 .header__menu__pages li:hover span {

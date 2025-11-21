@@ -11,6 +11,17 @@ import { AddItems } from "./components/commons/auth/layout/AddItems";
 import { Disconnect } from "./components/commons/auth/layout/Disconnect";
 import { Providers } from "./Providers"; 
 
+import blason_1 from "../../public/assets/pictures/icon/blasons/blason_1.png";
+import blason_2 from "../../public/assets/pictures/icon/blasons/blason_2.png";
+import blason_3 from "../../public/assets/pictures/icon/blasons/blason_3.png";
+import blason_4 from "../../public/assets/pictures/icon/blasons/blason_4.png";
+import blason_5 from "../../public/assets/pictures/icon/blasons/blason_5.png";
+import blason_6 from "../../public/assets/pictures/icon/blasons/blason_6.png";
+import blason_7 from "../../public/assets/pictures/icon/blasons/blason_7.png";
+import blason_8 from "../../public/assets/pictures/icon/blasons/blason_8.png";
+import etendard_button from "../../public/assets/pictures/photos/etendard_button.png";
+import horloge from "../../public/assets/pictures/logo/horloge.png";
+
 export const metadata = {
   title: "Marchantiq | Achat, Vente et Estimation d’objets anciens",
   description: "Marchantiq est spécialisé dans l’achat, la vente et l’estimation d’objets anciens et de collection. Découvrez nos nouveautés, articles à la une et services aux collectionneurs.",
@@ -81,6 +92,24 @@ export default async function RootLayout({ children }) {
 
         </header>
         <main>
+
+
+            <div className="categories"> 
+
+                <div>
+                    <h2>Categories</h2>
+                    <ul>
+                        <Link href="/items/furniture"  ><li> <Image src={blason_1} alt={"logo blason"} width={34.8} height={34.9}/> <p>Mobilier</p></li></Link>
+                        <Link href="/items/knick-knacks" ><li>  <Image src={blason_2} alt={"logo blason"} width={34.8} height={34.9}/> <p>Bibelots</p></li></Link>
+                        <Link href="/items/militaria" ><li>  <Image src={blason_3} alt={"logo blason"} width={34.8} height={34.9}/> <p>Militaria</p></li></Link>
+                        <Link href="/items/books" ><li>  <Image src={blason_4} alt={"logo blason"} width={34.8} height={34.9}/><p>Livres</p></li></Link>
+                        <Link href="/items/numismatics"><li> <Image src={blason_5} alt={"logo blason"} width={34.8} height={34.9}/><p>Numismatiques</p></li></Link>
+                        <Link href="/items/paintings" ><li> <Image src={blason_6} alt={"logo blason"} width={34.8} height={34.9}/><p>Tableaux</p></li></Link>
+                        <Link href="/items/postcards" ><li> <Image src={blason_7} alt={"logo blason"} width={34.8} height={34.9}/><p>Cartes postales</p></li></Link>
+                        <Link href="/items/miscellaneous" ><li> <Image src={blason_8} alt={"logo blason"} width={34.8} height={34.9}/><p>Divers</p></li></Link>
+                    </ul>
+                </div>
+            </div>
           {children}
         </main>
         <footer>
