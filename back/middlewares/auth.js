@@ -19,7 +19,7 @@ module.exports = async (req, res, next) => {
             isAdmin: isAdmin
         }
 
-        if(req.auth.isAdmin!==1) throw new Error("Droits insuffisants. Accès réservé aux administrateurs.");
+        if (req.auth.isAdmin !== 1) throw new Error("Droits insuffisants. Accès réservé aux administrateurs.");
 
         next();
 
@@ -28,7 +28,7 @@ module.exports = async (req, res, next) => {
             httpOnly: true,
             secure: true,
             sameSite: 'None',
-            path: '/' 
+            path: '/'
         });
 
         res.status(401).json({ msg: "Authentification impossible", error: err.message })

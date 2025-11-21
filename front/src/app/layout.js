@@ -7,6 +7,8 @@ import drapeau from "../../public/assets/pictures/icon/blasons/drapeau.png";
 import Image from "next/image";
 import { HOST } from "./host.js";
 import { ActiveLink } from "./components/navigation/ActiveLink";
+import { AddItems } from "./components/commons/auth/layout/AddItems";
+import { Disconnect } from "./components/commons/auth/layout/Disconnect";
 
 export const metadata = {
   title: "Marchantiq | Achat, Vente et Estimation d’objets anciens",
@@ -15,17 +17,16 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
 
-  const preRes = await fetch(`${HOST}/api/auth/isUserConnected`, {
-    // optionnel : pour être sûr d’avoir les données fraîches (cache)
-    cache: "no-store",
-    credentials: "include",
-  });
-
-  const res = await preRes.json();
-  const isUserAdmin = res.isUser;
-
   return (
     <html lang="fr">
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
+        />
+      </head>
       <body className="app">
         <header>
           <div className="header__logo">
@@ -68,14 +69,9 @@ export default async function RootLayout({ children }) {
                     <span>Auth</span>
                   </ActiveLink>
                 </li>
-                {isUserAdmin && <li data-text="Ajouter un objet" style={{ width: "124px" }}>
-                  <ActiveLink href="/admin/addItems">
-                    <span>Ajouter un objet</span>
-                  </ActiveLink>
-                </li>
-                }
-                {/* {state.isConnected && <Link href="/admin/addItems"><li data-text="Ajouter un objet" style={{ width: "124px" }}><span>Ajouter un objet</span></li></Link>}
-                {state.isConnected && <i className="fa-solid fa-right-from-bracket" onClick={handleDisconnect} />} */}
+
+                <AddItems />
+                <Disconnect />
               </ul>
               {/* <i className="fa-solid fa-magnifying-glass" onClick={displaySearchBarMenu}></i> */}
             </div>
