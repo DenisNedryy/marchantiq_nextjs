@@ -8,7 +8,11 @@ const fs = require('fs').promises;
 
 exports.isUserConnected = async (req, res, next) => {
     try {
-        if (req.auth.userId) return res.status(200).json({ isUser: true });
+        if (req.auth.userId) {
+            return res.status(200).json({ isUser: true });
+        } else {
+            return res.status(400).json({ isUser: false })
+        }
     } catch (err) {
         res.status(500).json({ error: err });
     }

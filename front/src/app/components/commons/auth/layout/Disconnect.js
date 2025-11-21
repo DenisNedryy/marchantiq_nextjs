@@ -1,52 +1,33 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react";
-import { isUserConnected, disconnect } from "../../../../services/users";
+import { disconnect } from "../../../../services/users";
 import { useRouter } from "next/navigation";
+import { useAuth } from "../../../../context/AuthContext";
 
 export function Disconnect() {
+  const router = useRouter();
+  const { state, dispatch } = useAuth(); // vient du contexte
 
-    const [isUserAdmin, setIsUserAdmin] = useState(false);
-    const router = useRouter();
+  async function handleDisconnect() {
+    const res = await disconnect();
 
-    async function askIfAdmin() {
-        const res = await isUserConnected();
-        const isUserAdmin = await res.data.isUser;
-        console.log(isUserAdmin);
-        setIsUserAdmin(isUserAdmin);
+    if (res?.ok) {
+      // 1. On met à jour le contexte global
+      dispatch({ type: "LOGOUT" });
+
+      // 2. Navigation
+      router.push("/");
+      router.refresh();
     }
+  }
 
-    async function handleDisconnect() {
-        const res = await disconnect();
+  // Si l'utilisateur n'est pas admin / connecté → on n'affiche rien
+  if (!state.isAdmin) return null;
 
-        if (res?.ok) {
-            setIsUserAdmin(false);  // ⬅️ update immédiate
-            router.refresh();
-            router.push('/');
-        }
-    }
-
-
-
-
-    // async function handleDisconnect() {
-    //     await disconnect();
-    //     router.refresh();   // ⬅️ met à jour l'app sans reload manuel
-    //     router.push('/');
-    // }
-
-
-
-    useEffect(() => {
-        askIfAdmin();
-    }, []);
-
-
-
-    return (
-        <>
-            {isUserAdmin && <i className="fa-solid fa-right-from-bracket" onClick={handleDisconnect} />}
-        </>
-    );
+  return (
+    <i
+      className="fa-solid fa-right-from-bracket"
+      onClick={handleDisconnect}
+    />
+  );
 }
-

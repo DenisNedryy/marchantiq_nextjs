@@ -9,6 +9,7 @@ import { HOST } from "./host.js";
 import { ActiveLink } from "./components/navigation/ActiveLink";
 import { AddItems } from "./components/commons/auth/layout/AddItems";
 import { Disconnect } from "./components/commons/auth/layout/Disconnect";
+import { Providers } from "./Providers"; 
 
 export const metadata = {
   title: "Marchantiq | Achat, Vente et Estimation d’objets anciens",
@@ -28,6 +29,7 @@ export default async function RootLayout({ children }) {
         />
       </head>
       <body className="app">
+          <Providers> 
         <header>
           <div className="header__logo">
             <div className="header__logo__content">
@@ -119,6 +121,7 @@ export default async function RootLayout({ children }) {
             <div className="footerContainer__bot"></div>
           </div>
         </footer>
+        </Providers>
       </body>
     </html>
   );
