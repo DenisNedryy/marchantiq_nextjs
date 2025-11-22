@@ -9,7 +9,8 @@ import { HOST } from "./host.js";
 import { ActiveLink } from "./components/navigation/ActiveLink";
 import { AddItems } from "./components/commons/auth/layout/AddItems";
 import { Disconnect } from "./components/commons/auth/layout/Disconnect";
-import { Providers } from "./Providers"; 
+import { Providers } from "./Providers";
+import { HeaderMenu } from "./components/commons/HeaderMenu";
 
 import blason_1 from "../../public/assets/pictures/icon/blasons/blason_1.png";
 import blason_2 from "../../public/assets/pictures/icon/blasons/blason_2.png";
@@ -29,6 +30,7 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
 
+
   return (
     <html lang="fr">
       <head>
@@ -40,116 +42,79 @@ export default async function RootLayout({ children }) {
         />
       </head>
       <body className="app">
-          <Providers> 
-        <header>
-          <div className="header__logo">
-            <div className="header__logo__content">
-              <Image src={fr} alt="logo fr" width={100} height={101.5} />
-              <Image src={empire} alt="logo ger" width={100} height={93} />
-              <div>
-                <h1><span className="inital-red">M</span><span className="main-title">archantiq</span></h1>
-                <p>Achat - Vente - Estimation</p>
-              </div>
-              <Image src={drapeau} className="drapeau" alt="logo drapeau" width={86} height={124.7} />
-            </div>
-          </div>
-          <div className="header__menu">
-
-            <div className="header__menu__pages">
-              <ul>
-                <li data-text="Accueil" style={{ width: "90px" }}>
-                  <ActiveLink href="/">
-                    <span>Accueil</span>
-                  </ActiveLink>
-                </li>
-                <li data-text="Presentation" style={{ width: "98px" }}>
-                  <ActiveLink href="/presentation">
-                    <span>Presentation</span>
-                  </ActiveLink>
-                </li>
-                <li data-text="Le coin des collectionneurs" style={{ width: "220px" }}>
-                  <ActiveLink href="/news">
-                    <span>Le coin des collectionneurs</span>
-                  </ActiveLink>
-                </li>
-                <li data-text="Contact" style={{ width: "85px" }}>
-                  <ActiveLink href="/contact">
-                    <span>Contact</span>
-                  </ActiveLink>
-                </li>
-                <li data-text="Auth" style={{ width: "80px" }}>
-                  <ActiveLink href="/auth">
-                    <span>Auth</span>
-                  </ActiveLink>
-                </li>
-
-                <AddItems />
-                <Disconnect />
-              </ul>
-              {/* <i className="fa-solid fa-magnifying-glass" onClick={displaySearchBarMenu}></i> */}
-            </div>
-          </div>
-
-        </header>
-        <main>
-
-
-            <div className="categories"> 
-
+        <Providers>
+          <header>
+            <div className="header__logo">
+              <div className="header__logo__content">
+                <Image src={fr} alt="logo fr" width={100} height={101.5} />
+                <Image src={empire} alt="logo ger" width={100} height={93} />
                 <div>
-                    <h2>Categories</h2>
+                  <h1><span className="inital-red">M</span><span className="main-title">archantiq</span></h1>
+                  <p>Achat - Vente - Estimation</p>
+                </div>
+                <Image src={drapeau} className="drapeau" alt="logo drapeau" width={86} height={124.7} />
+              </div>
+            </div>
+            <HeaderMenu />
+          </header>
+          <main>
+            <div className="categories">
+
+              <div className="categories__inner">
+                <h2>Categories</h2>
+                <ul>
+                  <Link href="/items/furniture"  ><li> <Image src={blason_1} alt={"logo blason"} width={34.8} height={34.9} /> <p>Mobilier</p></li></Link>
+                  <Link href="/items/knick-knacks" ><li>  <Image src={blason_2} alt={"logo blason"} width={34.8} height={34.9} /> <p>Bibelots</p></li></Link>
+                  <Link href="/items/militaria" ><li>  <Image src={blason_3} alt={"logo blason"} width={34.8} height={34.9} /> <p>Militaria</p></li></Link>
+                  <Link href="/items/books" ><li>  <Image src={blason_4} alt={"logo blason"} width={34.8} height={34.9} /><p>Livres</p></li></Link>
+                  <Link href="/items/numismatics"><li> <Image src={blason_5} alt={"logo blason"} width={34.8} height={34.9} /><p>Numismatiques</p></li></Link>
+                  <Link href="/items/paintings" ><li> <Image src={blason_6} alt={"logo blason"} width={34.8} height={34.9} /><p>Tableaux</p></li></Link>
+                  <Link href="/items/postcards" ><li> <Image src={blason_7} alt={"logo blason"} width={34.8} height={34.9} /><p>Cartes postales</p></li></Link>
+                  <Link href="/items/miscellaneous" ><li> <Image src={blason_8} alt={"logo blason"} width={34.8} height={34.9} /><p>Divers</p></li></Link>
+                </ul>
+              </div>
+              <Image src={horloge} alt={horloge} width={273} className="horloge" />
+            </div>
+            {children}
+          </main>
+          <footer>
+            <div className="footerContainer">
+              <div className="footerContainer__top">
+                <div className="footerContainer__top__left">
+                  <p><span className="inital-red">M</span><span className="main-title">archantiq</span></p>
+                </div>
+                <div className="footerContainer__top__right">
+                  <div className="footerContainer__top__right--category">
+                    <p className="description">Informations de contact</p>
                     <ul>
-                        <Link href="/items/furniture"  ><li> <Image src={blason_1} alt={"logo blason"} width={34.8} height={34.9}/> <p>Mobilier</p></li></Link>
-                        <Link href="/items/knick-knacks" ><li>  <Image src={blason_2} alt={"logo blason"} width={34.8} height={34.9}/> <p>Bibelots</p></li></Link>
-                        <Link href="/items/militaria" ><li>  <Image src={blason_3} alt={"logo blason"} width={34.8} height={34.9}/> <p>Militaria</p></li></Link>
-                        <Link href="/items/books" ><li>  <Image src={blason_4} alt={"logo blason"} width={34.8} height={34.9}/><p>Livres</p></li></Link>
-                        <Link href="/items/numismatics"><li> <Image src={blason_5} alt={"logo blason"} width={34.8} height={34.9}/><p>Numismatiques</p></li></Link>
-                        <Link href="/items/paintings" ><li> <Image src={blason_6} alt={"logo blason"} width={34.8} height={34.9}/><p>Tableaux</p></li></Link>
-                        <Link href="/items/postcards" ><li> <Image src={blason_7} alt={"logo blason"} width={34.8} height={34.9}/><p>Cartes postales</p></li></Link>
-                        <Link href="/items/miscellaneous" ><li> <Image src={blason_8} alt={"logo blason"} width={34.8} height={34.9}/><p>Divers</p></li></Link>
+                      <li>Adresse postale</li>
+                      <li>Numéro de téléphone: 06 12 36 00 87</li>
+                      <li>Adresse e-mail: march.js@orange.fr</li>
+                      <Link href="/contact"><li>Contact</li></Link>
                     </ul>
-                </div>
-            </div>
-          {children}
-        </main>
-        <footer>
-          <div className="footerContainer">
-            <div className="footerContainer__top">
-              <div className="footerContainer__top__left">
-                <p><span className="inital-red">M</span><span className="main-title">archantiq</span></p>
-              </div>
-              <div className="footerContainer__top__right">
-                <div className="footerContainer__top__right--category">
-                  <p className="description">Informations de contact</p>
-                  <ul>
-                    <li>Adresse postale</li>
-                    <li>Numéro de téléphone: 06 12 36 00 87</li>
-                    <li>Adresse e-mail: march.js@orange.fr</li>
-                    <Link href="/contact"><li>Contact</li></Link>
-                  </ul>
-                </div>
-                <div className="footerContainer__top__right--category">
-                  <p className="description">Liens utiles</p>
-                  <ul>
-                    <Link href="/presentation"><li>À propos / Qui sommes-nous</li></Link>
-                    <Link href="/"><li>Accueil</li></Link>
-                    <Link href="/items/furniture"><li>Mobilier</li></Link>
-                    <Link href="/news"><li>Le coin des collectionneurs</li></Link>
-                  </ul>
-                </div>
-                <div className="footerContainer__top__right--category">
-                  <p className="description">Obligations légales</p>
-                  <ul>
-                    <li>EDITEUR: Marchais Jean-François</li>
-                    <li>HERBERGEUR: o2switch</li>
-                    <li>SIRET: EI RCS SIREN 818279408 poitiers</li>
-                  </ul>
+                  </div>
+                  <div className="footerContainer__top__right--category">
+                    <p className="description">Liens utiles</p>
+                    <ul>
+                      <Link href="/presentation"><li>À propos / Qui sommes-nous</li></Link>
+                      <Link href="/"><li>Accueil</li></Link>
+                      <Link href="/items/furniture"><li>Mobilier</li></Link>
+                      <Link href="/news"><li>Le coin des collectionneurs</li></Link>
+                    </ul>
+                  </div>
+                  <div className="footerContainer__top__right--category">
+                    <p className="description">Obligations légales</p>
+                    <ul>
+                      <li>EDITEUR: Marchais Jean-François</li>
+                      <li>HERBERGEUR: o2switch</li>
+                      <li>SIRET: EI RCS SIREN 818279408 poitiers</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
+              <div className="footerContainer__bot"></div>
             </div>
-            <div className="footerContainer__bot"></div>
-          </div>
-        </footer>
+          </footer>
         </Providers>
       </body>
     </html>
