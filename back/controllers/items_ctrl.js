@@ -122,6 +122,7 @@ exports.getItemsByResearch = async (req, res, next) => {
 };
 
 exports.createItem = async (req, res, next) => {
+    console.log("# ctrl>createItem>start")
     try {
         // Récupération des données
         const { uuid, name, price, artist, state, matiere, longeur, largeur, hauteur, diam, profondeur, style, epoque, year, category, description, isNew } = req.body;
@@ -174,6 +175,7 @@ exports.createItem = async (req, res, next) => {
 
 exports.addImage = async (req, res, next) => {
     try {
+        console.log("# ctrl>add-img>start")
         const item_uuid = req.params.uuid;
 
         //Récupération de l'auth

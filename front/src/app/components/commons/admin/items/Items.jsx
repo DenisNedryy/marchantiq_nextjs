@@ -1,10 +1,11 @@
+"use client"
 
 import { Items_1Form } from "../../../forms/Items_1Form";
 import { Items_2Form } from "../../../forms/Items_2Form";
 import { Items_3Form } from "../../../forms/Items_3Form";
 import { Items_4Form } from "../../../forms/Items_4Form";
 import { useState, useEffect } from "react";
-import { createItem } from "../../../services/items";
+import { createItem } from "../../../../services/items";
 import { ShowImages } from "./ShowImages";
 import { v4 as uuidv4 } from 'uuid';
 
@@ -36,7 +37,7 @@ export function Items({ step, setStep }) {
 
     return (
         <>
-            <div class="steps">
+            <div className="steps">
                 <i className="fa-solid fa-check" />
                 <p>Etape <span className="bold">{step}</span> sur <span className="bold">4</span></p>
                 {step === 1 && <h3>Entrez les détails de l’objet</h3>}

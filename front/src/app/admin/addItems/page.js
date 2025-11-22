@@ -1,11 +1,11 @@
 "use client"
 
 import { useState } from "react";
-import { Items } from "./items/Items.jsx";
+import { Items } from "../../components/commons/admin/items/Items";
 
-export function Admin() {
+export default function Admin() {
 
-    const [itemStep, setItemStep] = useState(1);
+    const [itemStep, setItemStep] = useState(1);  
 
     return (
         <>

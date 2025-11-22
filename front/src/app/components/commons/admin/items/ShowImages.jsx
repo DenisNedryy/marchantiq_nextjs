@@ -1,6 +1,8 @@
-import { getOneItem } from "../../../services/items";
+"use client";
+
+import { getOneItem } from "../../../../services/items";
 import { useState, useEffect } from "react";
-import { HOST } from "../../../host/host";
+import { HOST } from "../../../../host";
 
 export function ShowImages({ onUpdate, uuid }) {
     

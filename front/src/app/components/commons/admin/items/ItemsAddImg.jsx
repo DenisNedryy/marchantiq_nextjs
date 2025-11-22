@@ -1,3 +1,5 @@
+"use client";
+
 
 import { AddItemsImgForm } from "../../../forms/AddItemsImgForm";
 

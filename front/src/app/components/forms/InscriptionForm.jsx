@@ -1,3 +1,5 @@
+"use client";
+
 export function InscriptionForm({ onUpdateAuthState, onUpdateForm }) {
 
     function handleSubmit(e) {

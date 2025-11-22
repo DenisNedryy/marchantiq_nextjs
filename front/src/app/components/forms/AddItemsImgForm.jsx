@@ -1,9 +1,11 @@
+"use client";
+
 import { addImage } from "../../services/items";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 
 export function AddItemsImgForm({ itemUuid, onUpdate, category }) {
 
-    const navigate = useNavigate();
+   const router = useRouter();
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -16,7 +18,7 @@ export function AddItemsImgForm({ itemUuid, onUpdate, category }) {
     }
 
     async function handleClick() {
-        navigate(`/items/${category}/items-details/${itemUuid}`);
+        router.push(`/items/${category}/items-details/${itemUuid}`);
     }
 
     return (

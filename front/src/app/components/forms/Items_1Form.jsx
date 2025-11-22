@@ -1,3 +1,5 @@
+"use client";
+
 export function Items_1Form({ onUpdateForm, onUpdateStep }) {
 
     function handleSubmit(e) {

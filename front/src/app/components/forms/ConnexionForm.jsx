@@ -1,3 +1,5 @@
+"use client";
+
 export function ConnexionForm({onUpdateAuthState, onUpdateForm }) {
 
     function handleSubmit(e) {

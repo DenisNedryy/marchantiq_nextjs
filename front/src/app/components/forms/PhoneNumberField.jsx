@@ -1,3 +1,5 @@
+"use client";
+
 import PhoneInput from 'react-phone-number-input';
 import { useState, useEffect } from "react";
 

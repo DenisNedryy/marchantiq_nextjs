@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 
 export function Items_3Form({ onUpdateForm, onUpdateStep }) {
