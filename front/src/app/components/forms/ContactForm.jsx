@@ -5,11 +5,10 @@ import { PhoneNumberField } from "../forms/PhoneNumberField";
 import { useParams } from "next/navigation";
 import { sendMail } from "../../services/mails";
 
-export function ContactForm() {
+export function ContactForm({uuid}) {
 
     const [objectValue, setObjectValue] = useState(`Marchantiq - Demande de renseignement`);
     const [phone, setPhone] = useState("");
-    const { uuid } = useParams();
 
     async function handleChange(e) {
         setObjectValue(e.target.value);

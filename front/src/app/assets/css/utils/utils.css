@@ -78,7 +78,7 @@
     padding: 18px;
 }
 
-.box h2 {
+.box h1, .box h2 {
     font-size: 30px;
     font-weight: 500;
     font-family: titres;

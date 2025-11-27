@@ -1,4 +1,4 @@
-import { HOST } from "../host.js";
+import { HOST } from "../host";
 
 export async function getNews() {
     try {

@@ -1,35 +1,85 @@
 import Link from "next/link";
 import "./globals.css";
-import logo_choppe from "../../public/assets/pictures/logo/logo_choppe.png";
 import empire from "../../public/assets/pictures/icon/blasons/empire.png";
 import fr from "../../public/assets/pictures/icon/blasons/fr.png";
 import drapeau from "../../public/assets/pictures/icon/blasons/drapeau.png";
 import Image from "next/image";
-import { HOST } from "./host.js";
-import { ActiveLink } from "./components/navigation/ActiveLink";
-import { AddItems } from "./components/commons/auth/layout/AddItems";
-import { Disconnect } from "./components/commons/auth/layout/Disconnect";
 import { Providers } from "./Providers";
 import { HeaderMenu } from "./components/commons/HeaderMenu";
-
-import blason_1 from "../../public/assets/pictures/icon/blasons/blason_1.png";
-import blason_2 from "../../public/assets/pictures/icon/blasons/blason_2.png";
-import blason_3 from "../../public/assets/pictures/icon/blasons/blason_3.png";
-import blason_4 from "../../public/assets/pictures/icon/blasons/blason_4.png";
-import blason_5 from "../../public/assets/pictures/icon/blasons/blason_5.png";
-import blason_6 from "../../public/assets/pictures/icon/blasons/blason_6.png";
-import blason_7 from "../../public/assets/pictures/icon/blasons/blason_7.png";
-import blason_8 from "../../public/assets/pictures/icon/blasons/blason_8.png";
-import etendard_button from "../../public/assets/pictures/photos/etendard_button.png";
-import horloge from "../../public/assets/pictures/logo/horloge.png";
+import { MyAside } from "./components/commons/MyAside";
 
 export const metadata = {
-  title: "Marchantiq | Achat, Vente et Estimation d’objets anciens",
-  description: "Marchantiq est spécialisé dans l’achat, la vente et l’estimation d’objets anciens et de collection. Découvrez nos nouveautés, articles à la une et services aux collectionneurs.",
+  metadataBase: new URL("https://www.marchantiq.fr"),
+
+  title: {
+    default: "Marchantiq | Achat, Vente et Estimation d’objets anciens",
+    template: "%s | Marchantiq",
+  },
+  description:
+    "Marchantiq est spécialisé dans l’achat, la vente et l’estimation d’objets anciens et de collection. Découvrez nos nouveautés, articles à la une et services aux collectionneurs.",
+
+  // Pour les moteurs de recherche
+  alternates: {
+    canonical: "/",
+  },
+
+  // SEO technique
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
+
+  // Open Graph (Facebook, LinkedIn…)
+  openGraph: {
+    type: "website",
+    locale: "fr_FR",
+    url: "https://www.marchantiq.fr",
+    siteName: "Marchantiq",
+    title: "Marchantiq | Achat, Vente et Estimation d’objets anciens",
+    description:
+      "Objets anciens, collections, estimations et nouveautés : découvrez l’univers Marchantiq.",
+    images: [
+      {
+        url: "/assets/pictures/flyer/marchantiq_flyer.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Marchantiq – Objets anciens et authentiques",
+      },
+    ],
+  },
+
+  // Twitter
+  twitter: {
+    card: "summary_large_image",
+    site: "@marchantiq", // si tu n'as pas de compte, tu peux laisser vide ou enlever
+    title: "Marchantiq - Objets anciens et estimations",
+    description:
+      "Achat, vente et estimation d’objets anciens et de collection avec Marchantiq.",
+    images: ["/assets/pictures/flyer/marchantiq_flyer.jpeg"],
+  },
+
+  // Favicon & icônes
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
+
+  // Optionnel mais sympa pour le SEO local
+  category: "ecommerce",
 };
 
 export default async function RootLayout({ children }) {
-
 
   return (
     <html lang="fr">
@@ -58,23 +108,7 @@ export default async function RootLayout({ children }) {
             <HeaderMenu />
           </header>
           <main>
-            <div className="categories">
-
-              <div className="categories__inner">
-                <h2>Categories</h2>
-                <ul>
-                  <Link href="/items/furniture"  ><li> <Image src={blason_1} alt={"logo blason"} width={34.8} height={34.9} /> <p>Mobilier</p></li></Link>
-                  <Link href="/items/knick-knacks" ><li>  <Image src={blason_2} alt={"logo blason"} width={34.8} height={34.9} /> <p>Bibelots</p></li></Link>
-                  <Link href="/items/militaria" ><li>  <Image src={blason_3} alt={"logo blason"} width={34.8} height={34.9} /> <p>Militaria</p></li></Link>
-                  <Link href="/items/books" ><li>  <Image src={blason_4} alt={"logo blason"} width={34.8} height={34.9} /><p>Livres</p></li></Link>
-                  <Link href="/items/numismatics"><li> <Image src={blason_5} alt={"logo blason"} width={34.8} height={34.9} /><p>Numismatiques</p></li></Link>
-                  <Link href="/items/paintings" ><li> <Image src={blason_6} alt={"logo blason"} width={34.8} height={34.9} /><p>Tableaux</p></li></Link>
-                  <Link href="/items/postcards" ><li> <Image src={blason_7} alt={"logo blason"} width={34.8} height={34.9} /><p>Cartes postales</p></li></Link>
-                  <Link href="/items/miscellaneous" ><li> <Image src={blason_8} alt={"logo blason"} width={34.8} height={34.9} /><p>Divers</p></li></Link>
-                </ul>
-              </div>
-              <Image src={horloge} alt={horloge} width={273} className="horloge" />
-            </div>
+            <MyAside />
             {children}
           </main>
           <footer>

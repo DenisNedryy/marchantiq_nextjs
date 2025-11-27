@@ -21,7 +21,7 @@ export default function SignUp({ onUpdateAuthState }) {
 
     return (
         <>
-            <h2>Inscription</h2>
+            <h1>Inscription</h1>
             <InscriptionForm onUpdateAuthState={onUpdateAuthState} onUpdateForm={setFormData} />
         </>
     );

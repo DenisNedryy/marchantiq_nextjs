@@ -26,7 +26,7 @@ export function Items_2Form({ onUpdateForm, onUpdateStep }) {
                 <input type="text" name="year" placeholder="ex: 200 ans avant JC" />
             </div>
             <div>
-                <label for="categorie">Catégorie :</label>
+                <label htmlFor="categorie">Catégorie :</label>
                 <select name="category" id="categorie">
                     <option value="mobilier">Mobilier</option>
                     <option value="bibelot">Bibelot</option>

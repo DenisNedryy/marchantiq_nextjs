@@ -6,6 +6,7 @@ import { Disconnect } from "../commons/auth/layout/Disconnect";
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { SearchBarHeader } from "../forms/SearchBarHeader";
+import { useWindowSize } from "../../hooks/useWindowSize";
 
 export function HeaderMenu() {
 
@@ -13,6 +14,9 @@ export function HeaderMenu() {
     const [searchBarMenuState, setSearchBarMenuState] = useState(false); // open/close state
     const searchBarMenuRef = useRef(null);
     const router = useRouter();
+    const [isMobile, setIsMobile] = useState(false);
+    const [isMobileMenu, setIsMobileMenu] = useState(true);
+    const { width } = useWindowSize();
 
     function displaySearchBarMenu() {
         searchBarMenuRef.current.style.animationName = `${searchBarMenuState ? "remonteAuCiel" : "descendDuCiel"}`;
@@ -23,10 +27,26 @@ export function HeaderMenu() {
         displaySearchBarMenu();
     }
 
+    function togglePageMini() {
+        setIsMobileMenu(!isMobileMenu);
+    }
+
+    function closePageMini() {
+        setIsMobileMenu(false);
+    }
+
     useEffect(() => {
         if (!searchBarContent) return;
         router.push(`/items/searchedItems/${searchBarContent}`);
     }, [searchBarContent, router]);
+
+    useEffect(() => {
+        if (width <= 1067) {
+            setIsMobile(true)
+        } else {
+            setIsMobile(false);
+        }
+    }, []);
 
     return (
         <>
@@ -63,6 +83,26 @@ export function HeaderMenu() {
                     </ul>
                     <i className="fa-solid fa-magnifying-glass" onClick={displaySearchBarMenu}></i>
 
+
+                </div>
+
+                <div className="header__menu__pagesMini">
+
+                    {isMobileMenu && <i className="fa-solid fa-bars" onClick={togglePageMini} />}
+                    {!isMobileMenu && <i className="fa-solid fa-xmark" onClick={togglePageMini} />}
+                    <div className={`header__menu__pagesMini__menu${!isMobileMenu ? " open" : ""}`}>
+
+                        <ul>
+                            <ActiveLink href="/" ><li onClick={closePageMini}><span>Accueil</span></li></ActiveLink>
+                            <ActiveLink href="/presentation" ><li onClick={closePageMini}><span>Presentation</span></li></ActiveLink>
+                            <ActiveLink href="/news" ><li onClick={closePageMini}><span>Le coin des collectionneurs</span></li></ActiveLink>
+                            <ActiveLink href="/contact" ><li onClick={closePageMini}><span>Contact</span></li></ActiveLink>
+                            <ActiveLink href="/auth" ><li onClick={closePageMini}><span>Auth</span></li></ActiveLink>
+                            <AddItems />
+                            <Disconnect />
+                        </ul>
+                        <div className="border"></div>
+                    </div>
 
                 </div>
 

@@ -14,7 +14,7 @@ export function Flyers() {
             <div className="flyers__container">
                 <Link href="/contact">
                     <div className="flyer">
-                        <Image src={flyer_jf_2} alt="flyer_1"/>
+                        <Image src={flyer_jf_2} alt="flyer envoyez moi vos photos"/>
                         <div className="para_1">
                             <p style={{ fontFamily: "titres", fontWeight: "600" }}>Achat Vente Estimation</p>
                             <p className="flyer__para_1_2">Envoyez moi des <span className="red">photos</span></p>
@@ -24,7 +24,7 @@ export function Flyers() {
                 </Link>
              
                 <div className="flyer">
-                    <Image src={flyer_jf_1} alt="flyer_2" />
+                    <Image src={flyer_jf_1} alt="flyer presentation des catégories" />
                     <div className="para_2">
                         <p style={{ fontFamily: "titres", fontWeight: "600" }}>Mobilier - Tableaux - Souvenirs Historiques</p>
                         <p style={{ fontFamily: "titres", fontWeight: "600" }}>Porcelaine - Objets - Militaires</p>

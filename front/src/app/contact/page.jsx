@@ -4,19 +4,34 @@ import { ContactFlyer } from "../components/commons/ContactFlyer";
 
 
 export const metadata = {
-    title: "Marchantiq - Contact | Contacter le propriétaire",
-    description: "Formulaire de contact Marchantiq : envoyez un message au propriétaire, posez vos questions et indiquez la référence d’un article pour obtenir plus d’informations.",
+    title: "Contact Marchantiq | Formulaire et coordonnées",
+    description:
+        "Contactez Marchantiq pour toute question, demande d’estimation ou information sur un objet ancien. Utilisez le formulaire de contact ou écrivez directement par e-mail.",
+    alternates: {
+        canonical: "/contact",
+    },
+    openGraph: {
+        title: "Contact Marchantiq | Formulaire et coordonnées",
+        description:
+            "Besoin d’une estimation ou d’informations sur un objet ancien ? Contactez Marchantiq via le formulaire ou par e-mail.",
+        url: "/contact",
+    },
+    twitter: {
+        title: "Contact Marchantiq",
+        description:
+            "Formulaire de contact Marchantiq : posez vos questions, demandez une estimation ou des informations sur un objet ancien.",
+    },
 };
 
 
-export default function Contact(){
+export default async function Contact() {
 
-     return (
+    return (
         <div className="contact">
             <div className="box">
-                <h2>Coordonées</h2>
+                <h1>Coordonées</h1>
                 <div className="contact__coordonées" >
-                <ContactFlyer/>
+                    <ContactFlyer />
                 </div>
             </div>
             <div className="box">

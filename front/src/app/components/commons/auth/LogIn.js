@@ -27,7 +27,7 @@ export default function LogIn({ onUpdateAuthState }) {
 
     return (
         <>
-            <h2>Connexion</h2>
+            <h1>Connexion</h1>
             <ConnexionForm onUpdateAuthState={onUpdateAuthState} onUpdateForm={setFormData} />
         </>
     );

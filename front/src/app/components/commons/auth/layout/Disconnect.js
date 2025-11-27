@@ -8,6 +8,9 @@ export function Disconnect() {
   const router = useRouter();
   const { state, dispatch } = useAuth(); // vient du contexte
 
+  // Si l'utilisateur n'est pas admin / connecté → on n'affiche rien
+  if (!state.isAdmin) return null;
+
   async function handleDisconnect() {
     const res = await disconnect();
 
@@ -21,8 +24,7 @@ export function Disconnect() {
     }
   }
 
-  // Si l'utilisateur n'est pas admin / connecté → on n'affiche rien
-  if (!state.isAdmin) return null;
+
 
   return (
     <i

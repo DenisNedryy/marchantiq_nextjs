@@ -26,8 +26,10 @@
 }
 
 .imgNotFound {
-    width: 100% !important;
     padding: 15px;
+    width: 66%;
+    max-width: 700px;
+    max-height:600px;
 }
 
 .items__container__item--banner {
